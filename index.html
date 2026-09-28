@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>roen wiki</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d10;
+            --card: #11151a;
+            --card-hover: #171c22;
+            --border: #222830;
+            --text: #f1f3f5;
+            --muted: #8c96a3;
+            --accent: #8b7cff;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Noto Sans KR",
+                sans-serif;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: min(900px, calc(100% - 40px));
+            margin: auto;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .brand {
+            margin-bottom: 42px;
+        }
+
+        .brand h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .brand p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 15px;
+            letter-spacing: 0.2px;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search {
+            position: relative;
+            width: min(620px, 100%);
+            margin: 0 auto 55px;
+        }
+
+        .search input {
+            width: 100%;
+            height: 58px;
+
+            padding: 0 22px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: var(--card);
+            color: var(--text);
+
+            font-size: 15px;
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .search input::placeholder {
+            color: #68717c;
+        }
+
+        .search input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(139, 124, 255, 0.08);
+        }
+
+        /* =========================
+           PORTAL
+        ========================= */
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+
+            width: min(700px, 100%);
+            margin: 0 auto;
+        }
+
+        .portal {
+            min-height: 150px;
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            text-align: left;
+
+            text-decoration: none;
+            color: var(--text);
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .portal:hover {
+            background: var(--card-hover);
+            border-color: #343c46;
+            transform: translateY(-2px);
+        }
+
+        .portal-number {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .portal-title {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+        }
+
+        .portal-description {
+            margin-top: 8px;
+
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: auto;
+
+            padding: 25px 20px 30px;
+
+            text-align: center;
+
+            color: #626b76;
+            font-size: 12px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 640px) {
+
+            main {
+                padding: 60px 0 40px;
+            }
+
+            .brand h1 {
+                font-size: 34px;
+            }
+
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portal {
+                min-height: 125px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+
+    <section class="brand">
+        <h1>로엔 야생</h1>
+        <p>A Minecraft Server</p>
+    </section>
+
+    <div class="search">
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="위키에서 검색..."
+            autocomplete="off"
+        >
+    </div>
+
+    <section class="portal-grid">
+
+        <!-- 포탈 1 -->
+        <a href="server.html" class="portal">
+            <span class="portal-number">PORTAL 01</span>
+            <span class="portal-title">서버 소개</span>
+            <span class="portal-description">
+                로엔 야생 서버에 대한 기본적인 정보를 확인하세요.
+            </span>
+        </a>
+
+        <!-- 포탈 2 -->
+        <a href="rules.html" class="portal">
+            <span class="portal-number">PORTAL 02</span>
+            <span class="portal-title">서버 법전</span>
+            <span class="portal-description">
+                서버 이용 규칙과 제재 기준을 확인하세요.
+            </span>
+        </a>
+
+        <!-- 포탈 3 -->
+        <a href="update.html" class="portal">
+            <span class="portal-number">PORTAL 03</span>
+            <span class="portal-title">업데이트 내역</span>
+            <span class="portal-description">
+                로엔 야생의 업데이트와 변경 사항을 확인하세요.
+            </span>
+        </a>
+
+        <!-- 포탈 4 -->
+        <a href="wiki/commands.html" class="portal">
+            <span class="portal-number">PORTAL 04</span>
+            <span class="portal-title">기본 명령어</span>
+            <span class="portal-description">
+                서버에서 사용할 수 있는 기본 명령어를 확인하세요.
+            </span>
+        </a>
+
+        <!-- 포탈 5 -->
+        <a href="faq.html" class="portal">
+            <span class="portal-number">PORTAL 05</span>
+            <span class="portal-title">자주 묻는 질문</span>
+            <span class="portal-description">
+                서버 이용 중 자주 궁금해하는 내용을 확인하세요.
+            </span>
+        </a>
+
+        <!-- 포탈 6 -->
+        <a href="wiki/content.html" class="portal">
+            <span class="portal-number">PORTAL 06</span>
+            <span class="portal-title">콘텐츠 위키</span>
+            <span class="portal-description">
+                로엔 야생의 다양한 콘텐츠와 시스템을 확인하세요.
+            </span>
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    2026 Roen. <strong>All rights reserved.</strong>
+</footer>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const portals = document.querySelectorAll(".portal");
+
+    searchInput.addEventListener("input", () => {
+
+        const keyword = searchInput.value
+            .trim()
+            .toLowerCase();
+
+        portals.forEach(portal => {
+
+            const text = portal.innerText.toLowerCase();
+
+            if (text.includes(keyword)) {
+                portal.style.display = "flex";
+            } else {
+                portal.style.display = "none";
+            }
+
+        });
+
+    });
+</script>
+
+</body>
+</html>
